@@ -3,141 +3,17 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script>
-  window.onload = function() {
-    $('.stepper-item').on( 'click', function ( e ) {
-
-      let obj = this;
-   
-      $('.screen').css('display','none');
-     $('#' + $(this).attr('step')).css('display','flex');
-
-     let step = $(this).attr('step');
-
-     $( ".stepper-item" ).each(function( index ) {
-     
-      if($(this).attr('step') < step)
-      {
-        $(this).find('.step-counter').html('<i class="fa fa-check"></i>     ');
-        $(this).attr('class','stepper-item completed');
-      }
-      else
-      {
-        $(this).find('.step-counter').html($(this).attr('step'));
-      }
-    });
-
-    $(obj).attr('class','stepper-item active');
-  
-      });
-    
-  }
-</script>
+<script type="text/javascript" src="script.js"></script>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Wizard sample</title>
+</head>
 
-    <title>Static Template</title>
-  </head>
-  <style>
-  .stepper-wrapper {
-  font-family: Arial;
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.stepper-item {
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-}
-
-.stepper-item::before {
-  position: absolute;
-  content: "";
-  border-bottom: 2px solid #ccc;
-  width: 100%;
-  top: 20px;
-  left: -50%;
-  z-index: 2;
-}
-
-.stepper-item::after {
-  position: absolute;
-  content: "";
-  border-bottom: 2px solid #ccc;
-  width: 100%;
-  top: 20px;
-  left: 50%;
-  z-index: 2;
-}
-
-.step-counter:hover{
-  color:red;
-}
-
-.step-name:hover{
-  color:red;
-}
-
-
-
-.stepper-item .step-counter {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ccc;
-  margin-bottom: 6px;
-}
-
-.stepper-item.active {
-  font-weight: bold;
-
-}
-
-.stepper-item.completed .step-counter {
-  background-color: #4bb543;
-}
-
-.stepper-item.completed::after {
-  position: absolute;
-  content: "";
-  border-bottom: 2px solid #4bb543;
-  width: 100%;
-  top: 20px;
-  left: 50%;
-  z-index: 3;
-}
-
-.screen{
-  display:none;
-}
-
-.stepper-item:first-child::before {
-  content: none;
-}
-.stepper-item:last-child::after {
-  content: none;
-}
-
-  </style>
   <body>
     <h2 style="text-align: center;">
       <a href="https://devrecipes.net/step-progres-bar-with-pure-css/">
@@ -146,26 +22,18 @@
       </a>
     </h1>
     <div class="stepper-wrapper">
-      <div step="1" class="stepper-item">
-        <div class="step-counter">1</div>
-        <div class="step-name">First</div>
-      </div>
-      <div step="2" class="stepper-item">
-        <div class="step-counter">2</div>
-        <div class="step-name">Second</div>
-      </div>
-      <div step="3" class="stepper-item">
-        <div class="step-counter">3</div>
-        <div class="step-name">Third</div>
-      </div>
-      <div step="4" class="stepper-item">
-        <div class="step-counter">4</div>
-        <div class="step-name">Forth</div>
-      </div>
+   
     </div>
-    <div style="display:flex" class="screen" id="1">David</div>
-    <div class="screen" id="2">is</div>
-    <div class="screen"id="3">the</div>
-    <div class="screen" id="4">king</div>
+    <div class="navs">
+      <div action ="back" class="nav">Back</div>
+      <dic action ="next" id="btn_next" class="nav">Next</div>
+    </div>
+
+    <div style="display:flex" class="screen" step="TXT"><input id="username" placeholder="What's your name?" type="text"></input></div>
+    <div class="screen" step="NUM"><input id="userage" placeholder="What's your age?" type="number"></input></div>
+    <div class="screen" step="DATE"><label  for="year">Date of birth</label><input id="userdate" style="margin-left:6px" name="year" type="date"></div>
+    <div class="screen" step="CB"><input id="useragree" name="agree" type="checkbox">  <label for="agree">I agree to upload my details</label></div>
+
+    
   </body>
 </html>
