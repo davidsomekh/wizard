@@ -14,10 +14,10 @@ window.onload = function() {
   function appendSteps()
   {
     let steps = [];
-    steps.push({name:"Text",id:"TXT",validation:"validateTXT"});
-    steps.push({name:"Number",id:"NUM",validation:"validateNUM"});
-    steps.push({name:"Date",id:"DATE",validation:"validateDATE"});
-    steps.push({name:"Checkbox",id:"CB",validation:"validateCB"});
+    steps.push({name:"Name",id:"TXT",validation:"validateTXT"});
+    steps.push({name:"Age",id:"NUM",validation:"validateNUM"});
+    steps.push({name:"Date of bitrh",id:"DATE",validation:"validateDATE"});
+    steps.push({name:"Consent",id:"CB",validation:"validateCB"});
 
     let cont = 1;
 
